@@ -1,4 +1,4 @@
-import { Module as ModuleEntity } from './entities/module.entity'; // Renombramos aquí
+import { ModuleEntity } from './modules/module.entity'; // Renombramos aquí
 import { Module } from '@nestjs/common'; // Esta es la clase de NestJS
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
@@ -7,6 +7,8 @@ import { Posts } from './posts/post.entity'; // Asegúrate de tener tu entidad
 import { PostsService } from './posts/post.service';
 import { PostController } from './posts/post.controller';
 import { User } from './entities/user.entity';
+import { ModuleController } from './modules/module.controller';
+import { ModuleService } from './modules/module.service';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { User } from './entities/user.entity';
     }),
     TypeOrmModule.forFeature([ModuleEntity, User, Posts]), // También usamos ModuleEntity aquí
   ],
-  controllers: [AppController, PostController],
-  providers: [AppService, PostsService],
+  controllers: [AppController, PostController, ModuleController],
+  providers: [AppService, PostsService, ModuleService],
 })
 export class AppModule {}

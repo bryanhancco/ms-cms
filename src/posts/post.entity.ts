@@ -1,6 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
-import { Module } from '../entities/module.entity';
 import { User } from '../entities/user.entity';
 import { forwardRef } from '@nestjs/common';
 

@@ -9,12 +9,12 @@ export enum ModuleType {
 }
 
 @Entity('modules')
-export class Module {
+export class ModuleEntity {
   @PrimaryGeneratedColumn()
   @ApiProperty({ description: 'ID único del módulo' })
   id!: number;
 
-  @Column()
+  @Column({ name: 'course_id' })
   @ApiProperty({ description: 'ID del curso al que pertenece el módulo' })
   courseId!: number;
 
@@ -29,7 +29,7 @@ export class Module {
   @ApiProperty({ description: 'Tipo de módulo', enum: ModuleType })
   type!: ModuleType;
 
-  @Column()
+  @Column({ name: 'display_order' })
   @ApiProperty({ description: 'Orden de visualización del módulo' })
   displayOrder!: number;
 }
